@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require("axios");
 
 axios.get("https://api.geckoterminal.com/api/v2/networks/bsc/pools/0x8A7292E9ba068ec5221e4b5d491251a5b06762CC")
   .then(response => {
