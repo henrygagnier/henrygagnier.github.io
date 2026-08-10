@@ -4,196 +4,344 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Henry Gagnier</title>
-<meta name="description" content="Henry Gagnier — computational linguistics research on low-resource languages, OCR, and multilingual evaluation.">
+<meta name="description" content="Henry Gagnier — multilingual and multicultural NLP, digraphic and low-resource languages.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#171614;
-    --muted:#6f6c64;
-    --rule:#ddd8cc;
-    --link:#8a3324;
+    --bg:#fcfcfa;
+    --ink:#1a1917;
+    --muted:#79776f;
+    --faint:#a5a29a;
+    --rule:#e7e4dc;
+    --hover:#f4f2ec;
+    --measure:44rem;
+    --sans:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
   }
 
-  html{background:#fffdf9;-webkit-text-size-adjust:100%}
+  *{box-sizing:border-box}
+
+  html{-webkit-text-size-adjust:100%}
 
   body{
-    margin:0 auto;
-    max-width:34rem;
-    padding:5.5rem 1.5rem 7rem;
+    margin:0;
+    background:var(--bg);
     color:var(--ink);
-    font-family:"EB Garamond",Garamond,Georgia,serif;
-    font-size:21px;
-    line-height:1.55;
+    font-family:"Newsreader",Georgia,"Times New Roman",serif;
+    font-optical-sizing:auto;
+    font-size:19px;
+    font-weight:400;
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
   }
 
-  ::selection{background:#f0e6cf}
+  ::selection{background:#e8e3d4}
 
-  a{
-    color:inherit;
-    text-decoration:underline;
-    text-decoration-color:#cdc7b8;
-    text-decoration-thickness:1px;
-    text-underline-offset:.14em;
+  .wrap{
+    max-width:var(--measure);
+    margin:0 auto;
+    padding:0 1.75rem 8rem;
   }
 
-  a:hover{color:var(--link);text-decoration-color:var(--link)}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- header ---------- */
+
+  header{padding:8.5rem 0 0}
 
   h1{
-    font-size:1.45rem;
-    font-weight:600;
-    letter-spacing:.005em;
-    margin:0 0 .55rem;
+    font-size:2.45rem;
+    font-weight:400;
+    letter-spacing:-.022em;
+    line-height:1.1;
+    margin:0 0 .85rem;
+  }
+
+  .lede{
+    margin:0;
+    max-width:34rem;
+    color:#3b3934;
+  }
+
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:.35rem 1.4rem;
+    margin:1.7rem 0 0;
+    padding:0;
+    list-style:none;
+    font-family:var(--sans);
+    font-size:.775rem;
+    letter-spacing:.02em;
+    color:var(--muted);
+  }
+
+  .links a{
+    display:inline-block;
+    padding:.15rem 0;
+    color:var(--muted);
+    position:relative;
+    transition:color .25s ease;
+  }
+
+  .links .mail{display:inline-block;padding:.15rem 0}
+
+  .links a::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:.02rem;
+    height:1px;
+    background:currentColor;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .3s cubic-bezier(.2,.7,.2,1);
+  }
+
+  .links a:hover{color:var(--ink)}
+  .links a:hover::after{transform:scaleX(1)}
+
+  /* ---------- sections ---------- */
+
+  section{
+    padding-top:3.9rem;
+    margin-top:3.9rem;
+    border-top:1px solid var(--rule);
   }
 
   h2{
-    font-size:1.05rem;
-    font-weight:600;
-    margin:2.9rem 0 .9rem;
+    font-family:var(--sans);
+    font-size:.7rem;
+    font-weight:500;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    color:var(--faint);
+    margin:0 0 1.9rem;
   }
 
-  p{margin:0 0 .8rem}
+  @media (min-width:62rem){
+    .wrap{max-width:56rem;padding-left:3rem;padding-right:3rem}
+    header,section{padding-left:11rem}
+    section{position:relative}
+    h2{position:absolute;left:0;top:3.9rem;margin:0;width:9rem}
+    h1,.lede,.links,.entry,.pub,.note{max-width:var(--measure)}
+  }
 
-  .intro{margin-bottom:1.1rem}
+  /* ---------- experience ---------- */
 
-  .contact{
-    margin:0;
+  .entry{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:1.5rem;
+    padding:.72rem 0;
+  }
+
+  .entry + .entry{border-top:1px solid var(--rule)}
+
+  .entry .role{color:var(--muted);display:block;font-size:.94em}
+
+  .entry .when{
+    font-family:var(--sans);
+    font-size:.72rem;
+    letter-spacing:.03em;
+    color:var(--faint);
+    white-space:nowrap;
+    flex:none;
+    padding-top:.2rem;
+  }
+
+  /* ---------- publications ---------- */
+
+  .group{
+    font-family:var(--sans);
+    font-size:.68rem;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--faint);
+    margin:2.6rem 0 .5rem;
+    padding-bottom:.55rem;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .group:first-of-type{margin-top:0}
+
+  .pub{
+    display:block;
+    padding:.95rem .85rem .95rem .85rem;
+    margin:0 -.85rem;
+    border-radius:3px;
+    transition:background-color .3s ease;
+  }
+
+  .pub + .pub{box-shadow:inset 0 1px 0 var(--rule)}
+
+  a.pub:hover{background:var(--hover)}
+
+  .pub .title{
+    display:block;
+    line-height:1.35;
+    letter-spacing:-.006em;
+    text-wrap:pretty;
+  }
+
+  a.pub .title::after{
+    content:"↗";
+    font-size:.68em;
+    margin-left:.4em;
+    color:var(--faint);
+    opacity:0;
+    transform:translate(-3px,2px);
+    display:inline-block;
+    transition:opacity .3s ease,transform .3s ease;
+  }
+
+  a.pub:hover .title::after{opacity:1;transform:translate(0,0)}
+
+  .pub .meta{
+    display:block;
+    margin-top:.28rem;
+    font-size:.83em;
+    line-height:1.5;
     color:var(--muted);
-    font-size:.92em;
-    line-height:1.75;
   }
 
-  .contact .sep{padding:0 .45em;color:var(--rule)}
+  .pub .meta .venue{font-style:italic}
+  .pub .meta b{font-weight:500;color:#4d4a44}
 
-  hr{
-    border:0;
-    border-top:1px solid var(--rule);
-    margin:2.6rem 0 0;
+  /* ---------- misc ---------- */
+
+  .note{color:var(--muted)}
+
+  footer{
+    margin-top:5rem;
+    font-family:var(--sans);
+    font-size:.7rem;
+    letter-spacing:.04em;
+    color:var(--faint);
   }
 
-  ol{
-    list-style:none;
-    counter-reset:p;
-    margin:0;
-    padding:0;
-  }
+  @media (min-width:62rem){footer{padding-left:11rem}}
 
-  ol li{
-    counter-increment:p;
-    position:relative;
-    padding-left:2.2rem;
-    margin-bottom:1.05rem;
-  }
-
-  ol li::before{
-    content:counter(p) ".";
-    position:absolute;
-    left:0;
-    top:0;
-    width:1.6rem;
-    text-align:right;
-    color:var(--muted);
-    font-size:.92em;
-    font-variant-numeric:tabular-nums;
-  }
-
-  ol li .src{color:var(--muted)}
-  ol li .src i{font-style:italic}
-
-  ul{list-style:none;margin:0;padding:0}
-  ul li{margin-bottom:.62rem}
-  ul li .yr{color:var(--muted)}
-
-  .updated{
-    margin-top:3.4rem;
-    color:var(--muted);
-    font-size:.85em;
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important}
   }
 
   @media (max-width:34rem){
-    body{font-size:20px;padding-top:3.5rem}
-    ol li{padding-left:1.9rem}
+    body{font-size:18px}
+    header{padding-top:5rem}
+    h1{font-size:2.05rem}
+    .entry{display:block}
+    .entry .when{display:block;padding-top:.3rem}
   }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-  <h1>Henry Gagnier</h1>
+  <header>
+    <h1>Henry Gagnier</h1>
+    <p class="lede">I research multilingual and multicultural NLP, focusing on digraphic and low-resource languages.</p>
+    <ul class="links">
+      <li class="mail">henrygagnier9 [at] gmail [dot] com</li>
+      <li><a href="https://scholar.google.com/citations?hl=en&amp;user=Qsc6U6QAAAAJ" rel="noopener">Scholar</a></li>
+      <li><a href="https://github.com/henrygagnier" rel="noopener">GitHub</a></li>
+      <li><a href="https://orcid.org/0009-0001-9531-9449" rel="noopener">ORCID</a></li>
+    </ul>
+  </header>
 
-  <p class="intro">I do research in computational linguistics, mostly on OCR and evaluation for low-resource languages and non-Latin scripts.</p>
+  <section>
+    <h2>Publications</h2>
 
-  <p class="contact">
-    henrygagnier9 [at] gmail [dot] com<br>
-    <a href="https://scholar.google.com/citations?hl=en&amp;user=Qsc6U6QAAAAJ" rel="noopener">Google Scholar</a><span class="sep">/</span><a href="https://github.com/henrygagnier" rel="noopener">GitHub</a><span class="sep">/</span><a href="https://orcid.org/0009-0001-9531-9449" rel="noopener">ORCID</a>
-  </p>
+    <p class="group">Conference</p>
 
-  <hr>
+    <a class="pub" href="https://aclanthology.org/2026.eacl-srw.26/" rel="noopener">
+      <span class="title">A Benchmark and Evaluation of Automated Language of Study Extraction from Computational Linguistics Publications</span>
+      <span class="meta"><b>Henry Gagnier</b>, Ashwin Kirubakaran · <span class="venue">EACL 2026, Student Research Workshop</span></span>
+    </a>
 
-  <h2>Publications</h2>
+    <a class="pub" href="https://aclanthology.org/2026.abjadnlp-1.8/" rel="noopener">
+      <span class="title">KazakhOCR: A Synthetic Benchmark for Evaluating Multimodal Models in Low-Resource Kazakh Script OCR</span>
+      <span class="meta"><b>Henry Gagnier</b>, Sophie Gagnier, Ashwin Kirubakaran · <span class="venue">AbjadNLP 2026</span></span>
+    </a>
 
-  <ol>
-    <li>
-      <a href="https://aclanthology.org/2026.eacl-srw.26/" rel="noopener">A Benchmark and Evaluation of Automated Language of Study Extraction from Computational Linguistics Publications</a>.
-      <span class="src">With Ashwin Kirubakaran. <i>EACL 2026, Student Research Workshop</i>.</span>
-    </li>
-    <li>
-      <a href="https://aclanthology.org/2026.abjadnlp-1.8/" rel="noopener">KazakhOCR: A Synthetic Benchmark for Evaluating Multimodal Models in Low-Resource Kazakh Script OCR</a>.
-      <span class="src">With Sophie Gagnier and Ashwin Kirubakaran. <i>AbjadNLP 2026</i>.</span>
-    </li>
-    <li>
-      <a href="https://aclanthology.org/2026.abjadnlp-1.14/" rel="noopener">Orthographic Robustness of Persian Named Entity Recognition Models</a>.
-      <span class="src">With Sophie Gagnier. <i>AbjadNLP 2026</i>.</span>
-    </li>
-    <li>
-      <a href="https://aclanthology.org/2026.americasnlp-6.7/" rel="noopener">Deer, Deities, and Dancing: Culturally Biased LLM Hallucination in Low-Resource Wixárika Translation</a>.
-      <span class="src">With Ashwin Kirubakaran. <i>AmericasNLP 2026</i>.</span>
-    </li>
-    <li>
-      <a href="https://aclanthology.org/2026.bionlp-1.44/" rel="noopener">BioConflict: A Benchmark for Evaluating Large Language Models in Biomedical Contradiction Detection and Consensus Synthesis</a>.
-      <span class="src">With Ashwin Kirubakaran. <i>BioNLP 2026</i>.</span>
-    </li>
-    <li>
-      <a href="https://lrec.elra.info/lrec2026-ws-cawl-08" rel="noopener">Large Language Model-Based Post-OCR Correction for Low-Resource Kazakh Scripts</a>.
-      <span class="src"><i>CAWL 2026, at LREC 2026</i>.</span>
-    </li>
-    <li>
-      <a href="https://lrec.elra.info/lrec2026-ws-sigul-24" rel="noopener">Language Identification for Low-Resource Formosan Languages</a>.
-      <span class="src"><i>SIGUL 2026, at LREC 2026</i>.</span>
-    </li>
-    <li>
-      <a href="https://lrec.elra.info/lrec2026-ws-dialres-13" rel="noopener">Dialectometry and Evaluation of the ePark Corpus for Low-Resource Formosan Language Dialects</a>.
-      <span class="src"><i>Dialects in NLP 2026, at LREC 2026</i>.</span>
-    </li>
-    <li>
-      <a href="https://lrec.elra.info/lrec2026-ws-htres-11" rel="noopener">Cross-Modal Modeling of Emotional and Thematic Trajectories in Holocaust Survivor Oral Histories</a>.
-      <span class="src"><i>HTRes 2026, at LREC 2026</i>.</span>
-    </li>
-    <li>
-      <a href="https://dergipark.org.tr/en/pub/mephoj/article/1761392" rel="noopener">Spatial Transferability of Machine Learning Models for Urban Tree Species Classification using Sentinel-2 Multispectral Imagery</a>.
-      <span class="src"><i>Mersin Photogrammetry Journal</i> 8(1).</span>
-    </li>
-    <li>
-      <a href="https://periodicos.ufpe.br/revistas/SECAN/article/view/266946" rel="noopener">Statistical Analysis of Local Education Agency Funding and Demographics in the Finger Lakes Region, New York</a>.
-      <span class="src"><i>Socioeconomic Analytics</i> 3(1).</span>
-    </li>
-  </ol>
+    <a class="pub" href="https://aclanthology.org/2026.abjadnlp-1.14/" rel="noopener">
+      <span class="title">Orthographic Robustness of Persian Named Entity Recognition Models</span>
+      <span class="meta"><b>Henry Gagnier</b>, Sophie Gagnier · <span class="venue">AbjadNLP 2026</span></span>
+    </a>
 
-  <h2>Experience</h2>
+    <a class="pub" href="https://aclanthology.org/2026.americasnlp-6.7/" rel="noopener">
+      <span class="title">Deer, Deities, and Dancing: Culturally Biased LLM Hallucination in Low-Resource Wixárika Translation</span>
+      <span class="meta"><b>Henry Gagnier</b>, Ashwin Kirubakaran · <span class="venue">AmericasNLP 2026</span></span>
+    </a>
 
-  <ul>
-    <li>Lab Intern, Center for Matter at Atomic Pressures, University of Rochester. <span class="yr">2026</span></li>
-    <li>Data Analyst Intern and Project Manager, Rochester Institute of Technology. <span class="yr">2025</span></li>
-  </ul>
+    <a class="pub" href="https://aclanthology.org/2026.bionlp-1.44/" rel="noopener">
+      <span class="title">BioConflict: A Benchmark for Evaluating Large Language Models in Biomedical Contradiction Detection and Consensus Synthesis</span>
+      <span class="meta">Ashwin Kirubakaran, <b>Henry Gagnier</b> · <span class="venue">BioNLP 2026</span></span>
+    </a>
 
-  <h2>Service</h2>
+    <a class="pub" href="https://lrec.elra.info/lrec2026-ws-cawl-08" rel="noopener">
+      <span class="title">Large Language Model-Based Post-OCR Correction for Low-Resource Kazakh Scripts</span>
+      <span class="meta"><b>Henry Gagnier</b> · <span class="venue">CAWL 2026 @ LREC 2026</span></span>
+    </a>
 
-  <ul>
-    <li>Session Chair, EACL 2026.</li>
-  </ul>
+    <a class="pub" href="https://lrec.elra.info/lrec2026-ws-sigul-24" rel="noopener">
+      <span class="title">Language Identification for Low-Resource Formosan Languages</span>
+      <span class="meta"><b>Henry Gagnier</b> · <span class="venue">SIGUL 2026 @ LREC 2026</span></span>
+    </a>
 
-  <p class="updated">Last updated August 2026.</p>
+    <a class="pub" href="https://lrec.elra.info/lrec2026-ws-dialres-13" rel="noopener">
+      <span class="title">Dialectometry and Evaluation of the ePark Corpus for Low-Resource Formosan Language Dialects</span>
+      <span class="meta"><b>Henry Gagnier</b> · <span class="venue">Dialects in NLP 2026 @ LREC 2026</span></span>
+    </a>
 
+    <a class="pub" href="https://lrec.elra.info/lrec2026-ws-htres-11" rel="noopener">
+      <span class="title">Cross-Modal Modeling of Emotional and Thematic Trajectories in Holocaust Survivor Oral Histories</span>
+      <span class="meta"><b>Henry Gagnier</b> · <span class="venue">HTRes 2026 @ LREC 2026</span></span>
+    </a>
+
+    <p class="group">Journal</p>
+
+    <a class="pub" href="https://dergipark.org.tr/en/pub/mephoj/article/1761392" rel="noopener">
+      <span class="title">Spatial Transferability of Machine Learning Models for Urban Tree Species Classification using Sentinel-2 Multispectral Imagery</span>
+      <span class="meta"><b>Henry Gagnier</b> · <span class="venue">Mersin Photogrammetry Journal</span> 8(1)</span>
+    </a>
+
+    <a class="pub" href="https://periodicos.ufpe.br/revistas/SECAN/article/view/266946" rel="noopener">
+      <span class="title">Statistical Analysis of Local Education Agency Funding and Demographics in the Finger Lakes Region, New York</span>
+      <span class="meta"><b>Henry Gagnier</b> · <span class="venue">Socioeconomic Analytics</span> 3(1)</span>
+    </a>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div>
+        University of Rochester, Center for Matter at Atomic Pressures
+        <span class="role">Lab Intern</span>
+      </div>
+      <span class="when">2026</span>
+    </div>
+
+    <div class="entry">
+      <div>
+        Rochester Institute of Technology
+        <span class="role">Data Analyst Intern / Project Manager</span>
+      </div>
+      <span class="when">2025</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Service</h2>
+    <p class="note">Session Chair, EACL 2026</p>
+  </section>
+
+  <footer>© 2026 Henry Gagnier</footer>
+
+</div>
 </body>
 </html>
